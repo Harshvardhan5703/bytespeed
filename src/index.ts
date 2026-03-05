@@ -7,6 +7,13 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.json({
+    service: 'Bitespeed Identity Reconciliation API',
+    status: 'running',
+    endpoint: 'POST /identify'
+  });
+});
 app.use('/', identifyRouter);
 
 const PORT = process.env.PORT || 3000;
